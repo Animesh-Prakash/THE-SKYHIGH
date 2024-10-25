@@ -4,44 +4,50 @@ import solution from './img/solution.jpg'
 import kvs from './img/kvs.jpg'
 import notes from './img/notes.jpg'
 import sample from './img/sample.jpg'
+import { Link } from 'react-router-dom'
+import Footer from '../Layout/Footer'
 const CBSE = () => {
   return (
     <>
     <Navbar/>
-    <div className='flex flex-col items-center mt-36'>
-      <div className='h-[200px] w-[90vw] bg-slate-400 flex items-center justify-center text-3xl font-medium'>CBSE</div>
-      <div  className='w-[90vw] my-28'>
+    <div className='flex flex-col items-center mt-36 mb-5'>
+      <div className='h-[200px] w-[90vw] bg-slate-400 flex items-center justify-center text-3xl font-medium '>CBSE</div>
+      <div  className='w-[90vw] my-28 below-1200:my-14'>
         <h1 className='text-center text-5xl font-semibold'>What We Offer</h1>
         <p className='text-center font-semibold'>Discover the array of educational services aimed at enhancing your learning experience.</p>
-        <div className='flex justify-around mt-12'>
+        <div className='flex justify-around mt-12 flex-wrap'>
           <div className='h-[500px] w-[250px] mx-2 flex flex-col gap-3'>
-           <a href=""><img src={solution} alt=""  className='h-[250px]'/></a> 
-            <a href=""><h1 className='text-2xl underline font-semibold '>NCERT SOLUTION</h1></a>
+           <a href="http://localhost:5173/books/ncert-solution"><img src={solution} alt=""  className='h-[250px] transition-transform transform
+                hover:scale-110 '/></a> 
+            <a href="http://localhost:5173/books/ncert-solution"><h1 className='text-2xl underline font-semibold '>NCERT SOLUTION</h1></a>
             <p>Our NCERT solutions provide clear, step-by-step explanations for textbook
                questions, helping students grasp concepts effectively and excel in their studies.</p>
           </div>
           <div className='h-[500px] w-[250px] mx-2 flex flex-col gap-3'>
-           <a href=""><img src={notes} alt=""  className='h-[250px]'/></a> 
-           <a href=""><h1 className='text-2xl underline font-semibold'  >NCERT NOTES</h1></a>
+           <a href="http://localhost:5173/books/NCERT%20Notes"><img src={notes} alt=""  className='h-[250px] transition-transform transform
+                hover:scale-110 '/></a> 
+           <a href="http://localhost:5173/books/NCERT%20Notes"><h1 className='text-2xl underline font-semibold'  >NCERT NOTES</h1></a>
             <p>Our CBSE notes simplify complex topics, highlighting key concepts and formulas for efficient 
               revision, helping students excel in their studies.</p>
           </div>
           <div className='h-[500px] w-[250px] mx-2 flex flex-col gap-3'>
-           <a href=""><img src={sample} alt=""  className='h-[250px]'/></a> 
-           <a href=""><h1 className='text-2xl underline font-semibold'  >SAMPLE PAPER</h1></a>
+           <a href="http://localhost:5173/books/Sample%20Paper%20with%20Solution"><img src={sample} alt=""  className='h-[250px] transition-transform transform
+                hover:scale-110 '/></a> 
+           <a href="http://localhost:5173/books/Sample%20Paper%20with%20Solution"><h1 className='text-2xl underline font-semibold'  >SAMPLE PAPER</h1></a>
             <p>Our sample papers are designed to simulate real exam conditions,
                offering a variety of questions with detailed solutions to enhance
                 students' preparation and confidence.</p>
           </div>
           <div className='h-[500px] w-[250px] mx-2 flex flex-col gap-3'>
-           <a href=""> <img src={kvs} alt="" className='h-[250px]' /></a>
-            <a href=""><h1 className='text-2xl underline font-semibold'>KVS WORKSHEET</h1></a>
+           <a href="http://localhost:5173/books/KVS%20CBSE%20Worksheet"> <img src={kvs} alt="" className='h-[250px] transition-transform transform
+                hover:scale-110 ' /></a>
+            <a href="http://localhost:5173/books/KVS%20CBSE%20Worksheet"><h1 className='text-2xl underline font-semibold'>KVS WORKSHEET</h1></a>
             <p>KVS worksheets are tailored to reinforce learning, featuring
                diverse question types that challenge students and enhance their
                 understanding of key concepts.</p>
           </div>
         </div>
-        <button className='bg-red-600 p-3 border-[1px] border-black rounded-xl ml-5 transition-all hover:bg-red-400 hover:p-4'>Learn more</button>
+        <button className='bg-red-600 p-3 border-[1px] border-black rounded-xl ml-5 transition-all hover:bg-red-400 cursor-pointer transition-transform transform hover:scale-110'><Link to='/cbse/books'>Learn more</Link></button>
 
       </div>
       <div className='flex flex-col w-[90vw]'>
@@ -88,7 +94,7 @@ const CBSE = () => {
                       journey toward academic excellence.</p>
       </div>
       </div>
-     
+     <Footer/>
       
     
     </>

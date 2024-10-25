@@ -1,7 +1,8 @@
 // SubjectContent.jsx
 import React from 'react';
 import { useParams } from 'react-router-dom';
-
+import Navbar from '../../Layout/Navbar';
+import Footer from '../../Layout/Footer';
 
 function SubjectContent() {
   const { className, subjectName, chapterName } = useParams(); // Get class, subject, and chapter from URL parameters
@@ -61,7 +62,9 @@ function SubjectContent() {
   const pdfLink = pdfLinks[className]?.[subjectName]?.[chapterName];
 
   return (
-    <div style={{ padding: '20px', textAlign: 'center' }}>
+    <>
+    <Navbar/>
+     <div style={{ padding: '20px', textAlign: 'center' }}>
       <h2>{`Class ${className} - ${subjectName} - ${chapterName}`}</h2>
       {pdfLink ? (
         <iframe
@@ -75,6 +78,9 @@ function SubjectContent() {
         <p>No PDF available for this chapter.</p>
       )}
     </div>
+    <Footer/>
+    </>
+   
   );
 }
 

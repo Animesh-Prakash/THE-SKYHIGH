@@ -50,18 +50,17 @@ const Imgslidebar = () => {
   }, [currentIndex]);
 
   return (
-    <div className='relative w-[98.7vw] h-[60vh] overflow-hidden group'>
-      <div className='relative w-full h-full'>
+    <div className='relative w-full h-[90vh] overflow-hidden group below-1200:h-[50vh] below-500:h-[40vh] '>
+      <div className='relative w-full h-[80vh] below-1200:h-[40vh] below-500:h-[30vh]'>
         {images.map((image, index) => (
           <div key={index} className={`absolute w-full h-full transition-opacity duration-1000 ${currentIndex === index ? 'opacity-100' : 'opacity-0'}`}>
             <img 
               src={image} 
               alt={`Slide ${index}`} 
-              className='w-full h-full object-cover'
-            />
+              className='w-full h-full '/>
             <div className={`absolute inset-0 flex justify-center items-center flex-col text-white ${animate && currentIndex === index ? 'animate-slide-up' : ''}`} style={{ zIndex: 20 }}>
-              <h2 className="text-6xl font-bold">{headings[index].title}</h2>
-              <p className="mt-2 text-lg text-center">{headings[index].paragraph}</p>
+              <h2 className="text-6xl font-bold below-500:text-4xl">{headings[index].title}</h2>
+              <p className="mt-2 text-lg text-center below-500:text-base">{headings[index].paragraph}</p>
             </div>
           </div>
         ))}
