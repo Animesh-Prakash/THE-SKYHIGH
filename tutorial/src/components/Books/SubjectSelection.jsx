@@ -1,11 +1,20 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Navbar from '../Layout/Navbar';
 import Footer from '../Layout/Footer';
+import 'aos/dist/aos.css'; // AOS styles
+import AOS from 'aos'; // AOS initialization script
 
 const SubjectSelection = () => {
   const { bookName, className } = useParams();
-
+ 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // You can adjust the animation duration here
+      once: true, // Whether the animation should happen only once
+    });
+  }, []);
   // Define the available subjects for each book and class
   const subjectMapping = {
     "Lakhmir Singh and Manjeet Kaur Solution": {
@@ -86,9 +95,9 @@ const SubjectSelection = () => {
   return (
     <>
     <Navbar/>
-     <div className='mt-32  below-lg:mt-32 md:h-[55vh] below-800:h-[100%] below-800:mb-36 '>
-      <h1 className='text-4xl font-semibold text-center'>Select Subject for {bookName} - {className}</h1>
-      <div className='flex justify-evenly flex-wrap'>
+     <div className='mt-32  below-lg:mt-32 md:h-[60vh] mb-8 below-800:h-[100%] below-800:mb-36 '>
+      <h1 data-aos="fade-down" className='text-4xl font-semibold text-center'>Select Subject for {bookName} - {className}</h1>
+      <div data-aos="zoom-out-up" className='flex justify-evenly flex-wrap'>
         {subjects.length > 0 ? (
           subjects.map((subject, index) => (
             <button key={index} className="w-[120px] h-[120px] rounded-[50%] bg-black text-white my-5 mx-8 cursor-pointer transition-transform transform hover:scale-110 hover:bg-slate-800 text-center">

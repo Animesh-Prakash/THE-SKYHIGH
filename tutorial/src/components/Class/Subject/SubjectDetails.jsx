@@ -1,11 +1,20 @@
 // SubjectDetails.jsx
 import React from 'react';
+import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '../../Layout/Navbar';
 import Footer from '../../Layout/Footer';
+import 'aos/dist/aos.css';
+import AOS from 'aos'; 
 
 const SubjectDetails = () => {
   const { className } = useParams();
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // You can adjust the animation duration here
+      once: true, // Whether the animation should happen only once
+    });
+  }, []);
 
   // Define subjects based on class
   const subjectsByClass = {
@@ -28,9 +37,9 @@ const SubjectDetails = () => {
   return (
     <>
     <Navbar/>
-    <div className='h-[55vh] below-800:h-[105vh]' style={{ padding: '20px', textAlign: 'center', marginTop: '100px', }}>
-<h1 className='text-5xl'>{`Select a Subject for Class ${className}`}</h1>
-<div className='flex justify-evenly  flex-wrap '>
+    <div className='h-[65vh] below-800:h-[105vh] mb-10' style={{ padding: '20px', textAlign: 'center', marginTop: '100px', }}>
+<h1 className='text-5xl' data-aos="fade-down">{`Select a Subject for Class ${className}`}</h1>
+<div data-aos="zoom-out-up" className='flex justify-evenly  flex-wrap '>
   {subjects.length > 0 ? (
     subjects.map((subject) => (
       <Link to={`/classes/${className}/subjects/${subject}/chapters`} key={subject}>

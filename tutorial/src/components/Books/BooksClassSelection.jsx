@@ -1,11 +1,20 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Navbar from '../Layout/Navbar';
 import Footer from '../Layout/Footer';
+import 'aos/dist/aos.css'; // AOS styles
+import AOS from 'aos'; // AOS initialization script
 
 const BooksClassSelection = () => {
   const { bookName } = useParams();
-
+ 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // You can adjust the animation duration here
+      once: true, // Whether the animation should happen only once
+    });
+  }, []);
   // Define the available classes and if subject selection is required
   const classMapping = {
     "NCERT Notes": { classes: ['Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10','Class 12'], requiresSubject: true }, //Done
@@ -30,8 +39,8 @@ const BooksClassSelection = () => {
     <>
     <Navbar/>
     <div className='mt-36 below-lg:mt-28 h-[55vh] below-600:h-[62vh]'>
-      <h1 className='text-4xl font-semibold text-center'>Select Class for {bookName}</h1>
-      <div className='flex justify-evenly flex-wrap'>
+      <h1  data-aos="fade-down" className='text-4xl font-semibold text-center'>Select Class for {bookName}</h1>
+      <div  data-aos="zoom-out-up" className='flex justify-evenly flex-wrap'>
         {classes.length > 0 ? (
           classes.map((className, index) => (
             <button key={index} className="w-[120px] h-[120px] rounded-[50%] bg-black text-white my-5 mx-8 cursor-pointer transition-transform transform hover:scale-110 hover:bg-slate-800 text-center below-ls:w-[100px] below-ls:h-[100px] below-ls:mx-5">

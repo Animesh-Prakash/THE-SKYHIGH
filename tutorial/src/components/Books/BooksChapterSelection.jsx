@@ -2,8 +2,18 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Navbar from '../Layout/Navbar';
 import Footer from '../Layout/Footer';
+import 'aos/dist/aos.css'; // AOS styles
+import AOS from 'aos'; // AOS initialization script
+import { useEffect } from 'react';
 
 const BooksChapterSelection = () => {
+ 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // You can adjust the animation duration here
+      once: true, // Whether the animation should happen only once
+    });
+  }, []);
   const { bookName, className, subject } = useParams();
   const generateChapters = (num) => {
     return Array.from({ length: num }, (_, i) => `Chapter ${i + 1}`);
@@ -322,10 +332,10 @@ const BooksChapterSelection = () => {
     <>
     <Navbar/>
      <div className=' below-lg:mt-28 h-[100%]  below-1200:mt-32'>
-      <h1 className='text-4xl font-semibold text-center'>
+      <h1 data-aos="fade-down" className='text-4xl font-semibold text-center'>
         {subject ? `Select Chapter for ${bookName} - ${className} - ${subject}` : `Select Chapter for ${bookName} - ${className}`}
       </h1>
-      <div className='flex justify-evenly flex-wrap'>
+      <div data-aos="zoom-out-up" className='flex justify-evenly flex-wrap '>
         {chapters.length > 0 ? (
           chapters.map((chapter, index) => (
             <button key={index} className="w-[120px] h-[120px] rounded-[50%] bg-black text-white my-5 mx-8 cursor-pointer transition-transform transform hover:scale-110 hover:bg-slate-800 text-center below-ls:w-[100px] below-ls:h-[100px] below-ls:mx-5">

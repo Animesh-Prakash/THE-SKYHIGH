@@ -1,8 +1,11 @@
 // ChapterSelection.jsx
 import React from 'react';
+import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '../../Layout/Navbar';
 import Footer from '../../Layout/Footer';
+import 'aos/dist/aos.css';
+import AOS from 'aos'; 
 
 // Helper function to generate chapter names
 const generateChapters = (num) => {
@@ -115,12 +118,19 @@ const ChapterSelection = () => {
 
   const chapters = chaptersByClassAndSubject[className]?.[subjectName] || []; // Get chapters based on class and subject
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // You can adjust the animation duration here
+      once: true, // Whether the animation should happen only once
+    });
+  }, []);
   return (
+    
     <>
     <Navbar/>
-     <div className=' h-[55vh] below-800:h-[100%] mt-28' style={{ padding: '20px', textAlign: 'center' }}>
-      <h1 className='text-5xl '>{`Select a Chapter for Class ${className} - ${subjectName}`}</h1>
-      <div>
+     <div className='  h-[100%] mt-28' style={{ padding: '20px', textAlign: 'center' }}>
+      <h1 data-aos="fade-down" className='text-5xl '>{`Select a Chapter for Class ${className} - ${subjectName}`}</h1>
+      <div data-aos="zoom-out-up">
         {chapters.length > 0 ? (
           chapters.map((chapter) => (
             <Link to={`/classes/${className}/subjects/${subjectName}/chapters/${chapter}`} key={chapter}>

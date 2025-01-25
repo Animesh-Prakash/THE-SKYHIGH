@@ -63,7 +63,7 @@ const BooksContent = () => {
   return (
     <>
       <Navbar />
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center h-[90vh] my-5">
         {pdfLink ? (
           <div className="pdf-container">
             <iframe

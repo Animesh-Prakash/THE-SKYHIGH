@@ -64,7 +64,7 @@ function SubjectContent() {
   return (
     <>
     <Navbar/>
-     <div style={{ padding: '20px', textAlign: 'center' }}>
+     <div style={{ padding: '20px', textAlign: 'center' }} className='h-[90vh] py-5'>
       <h2>{`Class ${className} - ${subjectName} - ${chapterName}`}</h2>
       {pdfLink ? (
         <iframe
